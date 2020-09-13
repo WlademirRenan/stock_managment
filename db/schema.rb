@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 2020_09_13_013358) do
   enable_extension "plpgsql"
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.float "cost_price"
+    t.string "name", null: false
+    t.float "cost_price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "stock_items", force: :cascade do |t|
-    t.float "quantity"
+    t.float "quantity", null: false
     t.bigint "product_id", null: false
     t.bigint "store_id", null: false
     t.datetime "created_at", null: false
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2020_09_13_013358) do
   end
 
   create_table "stores", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
+    t.string "name", null: false
+    t.string "address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

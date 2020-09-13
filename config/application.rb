@@ -42,5 +42,6 @@ module StockManagment
     end
 
     config.middleware.use Rack::Attack
+    config.autoload_paths << Rails.root.join('app')
   end
 end
