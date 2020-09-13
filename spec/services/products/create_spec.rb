@@ -17,7 +17,7 @@ RSpec.describe Services::Products::Create, type: :model do
       expect(@product_create.errors).to eq ['cost_price is required']
     end
 
-    it 'amount, destination_account_id and source_account_id' do
+    it 'should return 2 errors' do
       subject.call
       expect(subject.errors.size).to eq 2
     end
