@@ -16,12 +16,16 @@ module Services
 
         stock_item = ::StockItem.find_by_product_id_and_store_id(@product_id, @store_id)
         if stock_item
-          StockItem.transaction do
-            stock_item.quantity += @quantity
-            stock_item.save
-          end
+          process_quantity(stock_item)
         else
           @errors << 'stock_item not found'
+        end
+      end
+
+      def process_quantity(stock_item)
+        StockItem.transaction do
+          stock_item.quantity += @quantity
+          stock_item.save
         end
       end
 
@@ -29,9 +33,8 @@ module Services
         @errors << 'product_id is required' if @product_id.blank?
         @errors << 'store_id is required' if @store_id.blank?
         @errors << 'quantity is required' if @quantity.blank?
-        @errors << 'quantity must be a positive number' if @quantity.negative?
+        @errors << 'quantity must be a positive number' if @quantity.to_f.negative?
       end
-
     end
   end
 end
