@@ -26,11 +26,17 @@ RSpec.describe Services::StockItems::AddQuantity, type: :model do
       expect(@stock_item_add.errors).to eq ['quantity is required']
     end
 
+    it 'stock_item not found not found' do
+      @stock_item_add.product_id = 101010101010101010
+      @stock_item_add.call
+      expect(@stock_item_add.errors).to eq ['stock_item not found']
+    end
+
     it 'quantity is negative' do
-        @stock_item_add.quantity = -10
-        @stock_item_add.call
-        expect(@stock_item_add.errors).to eq ['quantity must be a positive number']
-      end
+      @stock_item_add.quantity = -10
+      @stock_item_add.call
+      expect(@stock_item_add.errors).to eq ['quantity must be a positive number']
+    end
 
     it 'should return 3 errors' do
       subject.call

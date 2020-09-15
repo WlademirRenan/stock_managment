@@ -27,10 +27,16 @@ RSpec.describe Services::StockItems::RemoveQuantity, type: :model do
     end
 
     it 'quantity is negative' do
-        @stock_item_remove.quantity = -10
-        @stock_item_remove.call
-        expect(@stock_item_remove.errors).to eq ['quantity must be a positive number']
-      end
+      @stock_item_remove.quantity = -10
+      @stock_item_remove.call
+      expect(@stock_item_remove.errors).to eq ['quantity must be a positive number']
+    end
+
+    it 'stock_item not found not found' do
+      @stock_item_remove.product_id = 101010101010101010
+      @stock_item_remove.call
+      expect(@stock_item_remove.errors).to eq ['stock_item not found']
+    end
 
     it 'should return 3 errors' do
       subject.call
