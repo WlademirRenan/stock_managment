@@ -27,6 +27,8 @@ module Services
           stock_item.quantity -= @quantity
           stock_item.save
         end
+      rescue => e
+        @errors << e.message
       end
 
       def validate_fields

@@ -13,6 +13,8 @@ module Services
       def call
         validate_fields
         ::Store.create(name: @name, address: @address) if @errors.empty?
+      rescue => e
+        @errors << e.message
       end
   
       def validate_fields

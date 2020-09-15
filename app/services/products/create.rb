@@ -13,6 +13,8 @@ module Services
       def call
         validate_fields
         ::Product.create(name: @name, cost_price: @cost_price) if @errors.empty?
+      rescue => e
+        @errors << e.message
       end
 
       def validate_fields

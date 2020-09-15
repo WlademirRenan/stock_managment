@@ -14,6 +14,8 @@ module Services
       def call
         validate_fields
         ::StockItem.create(product_id: @product_id, store_id: @store_id, quantity: @quantity) if @errors.empty?
+      rescue => e
+        @errors << e.message
       end
 
       def validate_fields

@@ -18,6 +18,8 @@ module Services
         else
           @errors << 'store not found'
         end
+      rescue => e
+        @errors << e.message
       end
 
       def validate_fields
