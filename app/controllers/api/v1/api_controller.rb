@@ -1,5 +1,5 @@
 module Api::V1
-  class ApiController < ApiController
+  class ApiController < ApplicationController
     # Global Methods
   end
 end
