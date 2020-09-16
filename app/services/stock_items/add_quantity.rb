@@ -24,7 +24,7 @@ module Services
 
       def process_quantity(stock_item)
         StockItem.transaction do
-          stock_item.quantity += @quantity
+          stock_item.quantity += @quantity.to_f
           stock_item.save
         end
       rescue => e
