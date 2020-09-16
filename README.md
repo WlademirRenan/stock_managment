@@ -35,18 +35,29 @@ The StockItem have the following params:
 # Endpoints:
 
 `GET  /api/v1/products/:id` => Show Product
+
 `POST  /api/v1/product` => Create Product
+
 `PATCH  /api/v1/products/:id` => Update Product
+
 `DELETE /api/v1/products/:id` => Delete Product
 
+
 `GET    /api/v1/stores/:id` => Show Store
+
 `POST   /api/v1/stores` => Create Store
+
 `PATCH  /api/v1/stores/:id` => Update Store
+
 `DELETE /api/v1/stores/:id` => Delete Store
 
+
 `POST   /api/v1/stock_items` => Create StockItem
+
 `PATCH  /api/v1/stock_items` => Update StockItem
+
 `DELETE /api/v1/stock_items` => Delete StockItem
+
 
 # Request Examples:
 
