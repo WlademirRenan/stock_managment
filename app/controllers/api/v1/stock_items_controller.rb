@@ -12,7 +12,7 @@ class Api::V1::StockItemsController < Api::V1::ApiController
   end
 
   # PATCH /api/v1/stock_items
-  def show
+  def add_quantity
     @stock_item = Services::StockItems::AddQuantity.new(product_params)
     @stock_item.call
     if @stock_item.errors.empty?
@@ -23,7 +23,7 @@ class Api::V1::StockItemsController < Api::V1::ApiController
   end
 
   # DELETE /api/v1/stock_items
-  def update
+  def remove_quantity
     @stock_item = Services::StockItems::RemoveQuantity.new(product_params)
     @stock_item.call
     if @stock_item.errors.empty?
