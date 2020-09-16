@@ -7,7 +7,7 @@ class Api::V1::StockItemsController < Api::V1::ApiController
     if @stock_item.errors.empty?
       render json: @stock_item, status: :created
     else
-      render json: @stock_item.errors, status: :unprocessable_entity
+      render json: @stock_item, status: :unprocessable_entity
     end
   end
 
@@ -18,7 +18,7 @@ class Api::V1::StockItemsController < Api::V1::ApiController
     if @stock_item.errors.empty?
       render json: @stock_item, status: :created
     else
-      render json: @stock_item.errors, status: :unprocessable_entity
+      render json: @stock_item, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class Api::V1::StockItemsController < Api::V1::ApiController
     if @stock_item.errors.empty?
       render json: @stock_item, status: :created
     else
-      render json: @stock_item.errors, status: :unprocessable_entity
+      render json: @stock_item, status: :unprocessable_entity
     end
   end
 

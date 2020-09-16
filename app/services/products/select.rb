@@ -15,7 +15,7 @@ module Services
 
         product = ::Product.find_by_id(@product_id)
         if product
-          @data[:product_id] = @product_id
+          @data[:product_id] = @product_id.to_i
           @data[:name] = product.name
           @data[:cost_price] = product.cost_price
         else

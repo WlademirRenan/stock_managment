@@ -7,7 +7,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
     if @product.errors.empty?
       render json: @product, status: :created
     else
-      render json: @product.errors, status: :unprocessable_entity
+      render json: @product, status: :unprocessable_entity
     end
   end
 
@@ -18,7 +18,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
     if @product.errors.empty?
       render json: @product, status: :created
     else
-      render json: @product.errors, status: :unprocessable_entity
+      render json: @product, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
     if @product.errors.empty?
       render json: @product, status: :created
     else
-      render json: @product.errors, status: :unprocessable_entity
+      render json: @product, status: :unprocessable_entity
     end
   end
 
@@ -40,13 +40,13 @@ class Api::V1::ProductsController < Api::V1::ApiController
     if @product.errors.empty?
       render json: @product, status: :created
     else
-      render json: @product.errors, status: :unprocessable_entity
+      render json: @product, status: :unprocessable_entity
     end
   end
 
   private
   # Only allow a trusted parameter "white list" through.
   def product_params
-    params.permit(:name, :cost_price, :id, product_id)
+    params.permit(:name, :cost_price, :id, :product_id)
   end
 end

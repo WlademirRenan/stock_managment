@@ -18,7 +18,7 @@ class Api::V1::StoresController < Api::V1::ApiController
     if @store.errors.empty?
       render json: @store, status: :created
     else
-      render json: @store.errors, status: :unprocessable_entity
+      render json: @store, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class Api::V1::StoresController < Api::V1::ApiController
     if @store.errors.empty?
       render json: @store, status: :created
     else
-      render json: @store.errors, status: :unprocessable_entity
+      render json: @store, status: :unprocessable_entity
     end
   end
 
@@ -40,7 +40,7 @@ class Api::V1::StoresController < Api::V1::ApiController
     if @store.errors.empty?
       render json: @store, status: :created
     else
-      render json: @store.errors, status: :unprocessable_entity
+      render json: @store, status: :unprocessable_entity
     end
   end
 
