@@ -15,7 +15,7 @@ module Services
 
         store = ::Store.find_by_id(@store_id)
         if store
-          @data[:store_id] = @store_id
+          @data[:store_id] = @store_id.to_i
           @data[:name] = store.name
           @data[:address] = store.address
         else
