@@ -40,7 +40,7 @@ RSpec.describe 'Stock Item', type: :request do
 
         patch '/api/v1/stock_items', params: params
 
-        expect(response.status).to eq 201
+        expect(response.status).to eq 200
         expect(JSON.parse(response.body)['errors']).to eq []
         expect(item.reload.quantity).to eq 160.0
       end
@@ -67,7 +67,7 @@ RSpec.describe 'Stock Item', type: :request do
 
         delete '/api/v1/stock_items', params: params
 
-        expect(response.status).to eq 201
+        expect(response.status).to eq 200
         expect(JSON.parse(response.body)['errors']).to eq []
         expect(item.reload.quantity).to eq 140.0
       end

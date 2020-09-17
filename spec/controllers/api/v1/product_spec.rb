@@ -33,7 +33,7 @@ RSpec.describe 'Product', type: :request do
 
         delete "/api/v1/products/#{@product.id}", params: params
 
-        expect(response.status).to eq 201
+        expect(response.status).to eq 200
         expect(JSON.parse(response.body)['errors']).to eq []
       end
     end
@@ -56,7 +56,7 @@ RSpec.describe 'Product', type: :request do
 
         get "/api/v1/products/#{@product.id}", params: params
 
-        expect(response.status).to eq 201
+        expect(response.status).to eq 200
         expect(JSON.parse(response.body)['errors']).to eq []
         expect(JSON.parse(response.body)['data'].symbolize_keys).to eq data
       end
@@ -79,7 +79,7 @@ RSpec.describe 'Product', type: :request do
 
         patch "/api/v1/products/#{@product.id}", params: params
 
-        expect(response.status).to eq 201
+        expect(response.status).to eq 200
         expect(JSON.parse(response.body)['errors']).to eq []
         expect(JSON.parse(response.body)['name']).to eq 'Product X1'
       end

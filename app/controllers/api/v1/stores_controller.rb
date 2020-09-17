@@ -16,7 +16,7 @@ class Api::V1::StoresController < Api::V1::ApiController
     @store = Services::Stores::Select.new(store_params)
     @store.call
     if @store.errors.empty?
-      render json: @store, status: :created
+      render json: @store, status: :ok
     else
       render json: @store, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Api::V1::StoresController < Api::V1::ApiController
     @store = Services::Stores::Update.new(store_params)
     @store.call
     if @store.errors.empty?
-      render json: @store, status: :created
+      render json: @store, status: :ok
     else
       render json: @store, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class Api::V1::StoresController < Api::V1::ApiController
     @store = Services::Stores::Delete.new(store_params)
     @store.call
     if @store.errors.empty?
-      render json: @store, status: :created
+      render json: @store, status: :ok
     else
       render json: @store, status: :unprocessable_entity
     end

@@ -16,7 +16,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
     @product = Services::Products::Select.new(product_params)
     @product.call
     if @product.errors.empty?
-      render json: @product, status: :created
+      render json: @product, status: :ok
     else
       render json: @product, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
     @product = Services::Products::Update.new(product_params)
     @product.call
     if @product.errors.empty?
-      render json: @product, status: :created
+      render json: @product, status: :ok
     else
       render json: @product, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
     @product = Services::Products::Delete.new(product_params)
     @product.call
     if @product.errors.empty?
-      render json: @product, status: :created
+      render json: @product, status: :ok
     else
       render json: @product, status: :unprocessable_entity
     end

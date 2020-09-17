@@ -16,7 +16,7 @@ class Api::V1::StockItemsController < Api::V1::ApiController
     @stock_item = Services::StockItems::AddQuantity.new(product_params)
     @stock_item.call
     if @stock_item.errors.empty?
-      render json: @stock_item, status: :created
+      render json: @stock_item, status: :ok
     else
       render json: @stock_item, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Api::V1::StockItemsController < Api::V1::ApiController
     @stock_item = Services::StockItems::RemoveQuantity.new(product_params)
     @stock_item.call
     if @stock_item.errors.empty?
-      render json: @stock_item, status: :created
+      render json: @stock_item, status: :ok
     else
       render json: @stock_item, status: :unprocessable_entity
     end
