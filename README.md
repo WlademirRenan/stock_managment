@@ -31,7 +31,7 @@ The StockItem have the following params:
 * store_id
 * quantity
 
-# Url do projeto no heroku:
+# Url on heroku:
 
 https://stock-managment-a.herokuapp.com
 
