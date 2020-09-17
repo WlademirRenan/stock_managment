@@ -31,6 +31,10 @@ The StockItem have the following params:
 * store_id
 * quantity
 
+# Url do projeto no heroku:
+
+https://stock-managment-a.herokuapp.com
+
 
 # Endpoints:
 
@@ -128,3 +132,24 @@ Host: localhost:3000
 DELETE /api/v1/stock_items?product_id=1&amp;store_id=1&amp;quantity=1.0 HTTP/1.1
 
 Host: localhost:3000
+
+
+
+# Melhorias:
+
+* Utilizar serializer nos models para retornar a classe ja formatada
+* Sistema assincrono para entradas de dados
+* Aumentar cenarios de testes
+* Implementar factorybot e faker para os testes
+* Implementar cache para todas as consultas
+* Implementar limpeza de cache do item quando atualizado
+* Implementar autenticação para requisições na api
+
+
+# Introdução
+
+Utilizei o patern de service object aplicando um conceito de ddd, onde todos os services são operações de um recurso, por exemplo, no produto temos os services de create, update, select e delete, dessa forma fica bem facil para implementar um sistema assincrono(sidekiq, activejob, rabbitMQ, SQS/SNS, entre outros), visando performance e alta disponibilidade, tambem utilizei transactions na parte de fazer a inseção/remoção do estoque me preocupando com a concorrencia
+
+Criei uma pasta para v1 da api, pois quando for preciso fazer uma v2 fique facil de alterar e manter a v1 enquanto a v2 é implementada e homologada
+
+Como na descriçao do teste não estava especificado para validar estoque negativo então optei por permitir e não fiz validação
